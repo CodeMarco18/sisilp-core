@@ -5,15 +5,16 @@ import java.util.Date;
 
 @Entity
 @Table (name= "estudiante")
-@PrimaryKeyJoinColumn(referencedColumnName = "idpersona")
+@PrimaryKeyJoinColumn(referencedColumnName = "IDPERSONA")
 public class Estudiante extends  Persona{
 
     @Column(name = "codigo", length = 10,nullable = false)
     private String codigo;
+
     @Column(name = "serie", length = 10)
     private String serie;
-    @ManyToOne
-    @JoinColumn(name = "idpersona")
+
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Escuela escuela;
 
     public Estudiante() {
