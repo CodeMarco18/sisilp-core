@@ -5,7 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table (name= "estudiante")
-@PrimaryKeyJoinColumn(referencedColumnName = "IDPERSONA")
+@PrimaryKeyJoinColumn(referencedColumnName = "idpersona")
 public class Estudiante extends  Persona{
 
     @Column(name = "codigo", length = 10,nullable = false)

@@ -18,4 +18,17 @@ public class EscuelaServiceImpl implements IEscuelaService {
     public List<Escuela> listarEscuelas() {
         return this.escuelaDao.findAll();
     }
+
+    @Override
+    public Escuela obtenerEscuelPorCodigo(String codigo) {
+
+        return this.escuelaDao.obtenerEscuelaPorParam(codigo);
+    }
+
+    @Override
+    public Escuela buscarEscuelaByIdAndDenominacion(Long idescuela, String denominacion) {
+        Escuela escuela = this.escuelaDao.findByIdescuelaAndDenominacion(idescuela, denominacion);
+        System.out.println("ESCUELA " + escuela.getDenominacion());
+        return escuela;
+    }
 }

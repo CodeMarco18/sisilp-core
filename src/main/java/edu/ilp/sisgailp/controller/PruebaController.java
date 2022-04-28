@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-
 @RestController
 @RequestMapping("login")
 public class PruebaController {
@@ -18,9 +17,19 @@ public class PruebaController {
     @Autowired
     private IEscuelaService escuelaService;
 
-    @GetMapping("/litaEscuelas")
+    @GetMapping("/listaEscuelas")
     public List<Escuela> listaEscuelas(){
-        return  this.escuelaService.listarEscuelas();
+        return this.escuelaService.listarEscuelas();
+    }
+
+    @GetMapping("/buscarEscuelaByCodigo")
+    public Escuela buscarEscuelaByCodigo(@RequestParam String codigo){
+        return this.escuelaService.obtenerEscuelPorCodigo(codigo);
+    }
+
+    @GetMapping("/buscarEscuelaByIdAndDenominacion")
+    public Escuela buscarEscuelaByIdAndDenominacion(@RequestParam Long idescuela,@RequestParam String nombre){
+        return this.escuelaService.buscarEscuelaByIdAndDenominacion(idescuela,nombre);
     }
 
     @GetMapping("/saludo")
